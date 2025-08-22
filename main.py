@@ -74,3 +74,4 @@ if __name__ == "__main__":
         fastest_ip = select_fastest_ip(ips)
         print(f"Selected fastest IP: {fastest_ip}")
         append_to_hosts(fastest_ip, DOMAIN)
+input("Press Enter to exit...")
