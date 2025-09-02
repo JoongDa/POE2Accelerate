@@ -5,6 +5,8 @@ import shutil
 import os
 import re
 
+VERSION = "0.02"
+
 DOMAIN = "patch-poe2.poecdn.com"
 HOSTS_PATH = r"C:\Windows\System32\drivers\etc\hosts" if platform.system().lower() == "windows" else "/etc/hosts"
 BACKUP_PATH = HOSTS_PATH + ".bak"
@@ -83,11 +85,9 @@ def flush_dns():
             subprocess.run("ipconfig /flushdns", shell=True, check=True)
             print("Flushed DNS cache on Windows.")
         elif "linux" in system:
-            # systemd-based
             if shutil.which("systemd-resolve"):
                 subprocess.run(["systemd-resolve", "--flush-caches"], check=True)
                 print("Flushed DNS cache via systemd-resolve.")
-            # legacy nscd
             elif shutil.which("nscd"):
                 subprocess.run(["sudo", "service", "nscd", "restart"], check=True)
                 print("Restarted nscd to flush DNS cache.")
@@ -101,6 +101,7 @@ def flush_dns():
         print("Failed to flush DNS:", e)
 
 if __name__ == "__main__":
+    print(f"=== Hosts Updater Script v{VERSION} ===")
     ips = resolve_domain(DOMAIN)
     if not ips:
         print("No IP addresses found. Exiting.")
