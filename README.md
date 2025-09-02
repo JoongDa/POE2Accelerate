@@ -1,4 +1,4 @@
-# POE2 Host Accelerator / POE2 加速 Hosts
+# POE2 Host Accelerator / POE2 加速 Hosts /POEHostUpdater
 
 ## 简介 / Description
 
@@ -7,13 +7,14 @@
 - 自动解析域名 IP  
 - 使用 ping 测延迟，选择最快的 IP（可选）  
 - 可生成可追加到 hosts 的内容  
-
+- 刷新HOSTS
+- 
 **English:**  
 This project resolves the IP addresses of `patch-poe2.poecdn.com` and writes them to your local `hosts` file, helping to accelerate Path of Exile 2 (POE2) client updates and downloads.  
 - Automatically resolve domain IPs  
 - Optionally select the fastest IP based on ping  
 - Generate content that can be appended to the hosts file  
-
+- SYNC HOSTS
 ---
 
 ## 功能 / Features
